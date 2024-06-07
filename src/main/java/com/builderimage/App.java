@@ -26,7 +26,8 @@ public class App {
                 System.out.println("Dist folder exists.");
                 // Upload files from the "dist" directory
                 S3Upload s3Upload = new S3Upload();
-                String bucketKeyPrefix = System.getenv("USER_ID") + "/";
+                String bucketKeyPrefix = System.getenv("USER_ID") + "/" + System.getenv("PROJECT_ID") + "/"
+                        + System.getenv("DEPLOYMENT_ID") + "/";
 
                 s3Upload.uploadDirectory(distFolder, bucketKeyPrefix);
 
